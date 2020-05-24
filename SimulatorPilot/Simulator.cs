@@ -49,7 +49,7 @@ namespace SimulatorPilot
                     Console.WriteLine(ex.Message);
                     break;
                 }
-                catch (LandedWithoutGainingMaximumHeightException ex)
+                catch (LandingDoesNotMeetConditions ex)
                 {
                     Console.WriteLine(ex.Message);
                     break;
@@ -59,6 +59,8 @@ namespace SimulatorPilot
 
         private void SignDispatchers()
         {
+            ShowDispatcherHandler += MyPlane.Show;
+
             foreach (var d in Dispatchers)
             {
                 FlyCnange += d.FlyChangeNotify;
@@ -68,7 +70,6 @@ namespace SimulatorPilot
 
         private void Move()
         {
-            MyPlane.Show();
             ShowDispatcherHandler();
             MyPlane.Flight();
             FlyCnange.Invoke(MyPlane);
