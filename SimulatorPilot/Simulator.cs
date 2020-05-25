@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SimulatorPilot
 {
@@ -49,10 +48,14 @@ namespace SimulatorPilot
                     Console.WriteLine(ex.Message);
                     break;
                 }
-                catch (LandingDoesNotMeetConditions ex)
+                catch (ImproperLandingException ex)
                 {
                     Console.WriteLine(ex.Message);
                     break;
+                }
+                catch (ZeroValueException ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

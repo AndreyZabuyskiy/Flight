@@ -14,8 +14,13 @@ namespace SimulatorPilot
         public override string Message => "Самолет набрал слишком много штрафов!!!";
     }
 
-    class LandingDoesNotMeetConditions : Exception
+    class ImproperLandingException : Exception
     {
         public override string Message => "Самолет призимлился не набрав максимальной высоты!!!";
+    }
+
+    class ZeroValueException : Exception
+    {
+        public override string Message => "Нулевое значение!!!";
     }
 }

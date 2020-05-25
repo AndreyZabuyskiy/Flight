@@ -36,15 +36,15 @@ namespace SimulatorPilot
 
         public void Flight()
         {
-            EAction command = Pilot.GiveCommand();
-
-            foreach (var item in Actions)
+            try
             {
-                if(item.Key == command)
-                {
-                    item.Value();
-                }
+                Actions[Pilot.GiveCommand()]();
             }
+            catch(ZeroValueException ex)
+            {
+                throw ex;
+            }
+
             Console.Clear();
 
             CheckCorrectly();
@@ -99,7 +99,7 @@ namespace SimulatorPilot
             if (Height == 0 && Speed == 0 && !IsReachMaximumSpeed)
             {
                 Console.Clear();
-                throw new LandingDoesNotMeetConditions();
+                throw new ImproperLandingException();
             }
 
             if (Height == 0 && Speed == 0 && IsReachMaximumSpeed)
@@ -118,6 +118,11 @@ namespace SimulatorPilot
         }
         private void ActionReduceSpeead()
         {
+            if(Speed == 0)
+            {
+                throw new ZeroValueException();
+            }
+
             if(Speed > 0)
             {
                 Speed -= 50;
@@ -129,6 +134,11 @@ namespace SimulatorPilot
         }
         private void ActionReduceHeight()
         {
+            if(Height == 0)
+            {
+                throw new ZeroValueException();
+            }
+
             if(Height > 0)
             {
                 Height -= 250;
