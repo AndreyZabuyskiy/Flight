@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace SimulatorPilot
@@ -30,7 +29,11 @@ namespace SimulatorPilot
                 { EAction.InereasaSpeead, ActionInereasaSpeead },
                 { EAction.ReduceSpeead, ActionReduceSpeead },
                 { EAction.IncreaseHeight, ActionIncreaseHeight },
-                { EAction.ReduceHeight, ActionReduceHeight }
+                { EAction.ReduceHeight, ActionReduceHeight },
+                { EAction.SignificantlyInereasaSpeead, ActionSignificantlyInereasaSpeead },
+                { EAction.SignificantlyReduceSpeead, ActionSignificantlyReduceSpeead },
+                { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
+                { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
             };
         }
 
@@ -142,6 +145,42 @@ namespace SimulatorPilot
             if(Height > 0)
             {
                 Height -= 250;
+            }
+        }
+
+        private void ActionSignificantlyInereasaSpeead()
+        {
+            if (Speed < MaxSpeed)
+            {
+                Speed += 150;
+            }
+        }
+        private void ActionSignificantlyReduceSpeead()
+        {
+            if (Speed == 0)
+            {
+                throw new ZeroValueException();
+            }
+
+            if (Speed > 0)
+            {
+                Speed -= 150;
+            }
+        }
+        private void ActionSignificantlyIncreaseHeight()
+        {
+            Height += 500;
+        }
+        private void ActionSignificantlyReduceHeight()
+        {
+            if (Height == 0)
+            {
+                throw new ZeroValueException();
+            }
+
+            if (Height > 0)
+            {
+                Height -= 500;
             }
         }
     }

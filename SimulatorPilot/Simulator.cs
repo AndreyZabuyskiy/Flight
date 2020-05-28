@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace SimulatorPilot
 {
-
     class Simulator
     {
         public delegate void FlyHandler(Plane plane);

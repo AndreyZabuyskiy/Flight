@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SimulatorPilot
+﻿namespace SimulatorPilot
 {
     class Program
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimulatorPilot
+﻿namespace SimulatorPilot
 {
     enum EAction
     {
@@ -10,5 +6,9 @@ namespace SimulatorPilot
         InereasaSpeead,
         ReduceHeight,
         ReduceSpeead,
+        SignificantlyIncreaseHeight,
+        SignificantlyInereasaSpeead,
+        SignificantlyReduceHeight,
+        SignificantlyReduceSpeead
     }
 }
