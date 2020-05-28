@@ -7,7 +7,7 @@ namespace SimulatorPilot
     {
         public delegate void FlyHandler(Plane plane);
         public event FlyHandler FlyCnange;
-        public event Action ShowDispatcherHandler;
+        public event Action ShowHandler;
 
         public Plane MyPlane { get; set; } = new Plane();
         public List<Dispatcher> Dispatchers { get; set; }
@@ -27,6 +27,16 @@ namespace SimulatorPilot
             });
 
             SignDispatchers();
+        }
+        private void SignDispatchers()
+        {
+            ShowHandler += MyPlane.Show;
+
+            foreach (var d in Dispatchers)
+            {
+                FlyCnange += d.FlyChangeNotify;
+                ShowHandler += d.Print;
+            }
         }
 
         public void Flight()
@@ -56,25 +66,19 @@ namespace SimulatorPilot
                 {
                     Console.WriteLine(ex.Message);
                 }
+                catch (ArithmeticMeanTooLargeException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    break;
+                }
             }
         }
-
-        private void SignDispatchers()
-        {
-            ShowDispatcherHandler += MyPlane.Show;
-
-            foreach (var d in Dispatchers)
-            {
-                FlyCnange += d.FlyChangeNotify;
-                ShowDispatcherHandler += d.Print;
-            }
-        }
-
         private void Move()
         {
-            ShowDispatcherHandler();
+            ShowHandler();
             MyPlane.Flight();
             FlyCnange.Invoke(MyPlane);
+            MyPlane.CalculateArithmeticMean();
         }
     }
 }

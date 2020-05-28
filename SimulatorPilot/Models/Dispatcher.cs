@@ -13,12 +13,13 @@ namespace SimulatorPilot
         {
             RecommendedHeight = GetReccomendHeight(plane);
             WriteOutFine(plane);
+            plane.TotalPoints += Penalty;
         }
         private void WriteOutFine(Plane plane)
         {
             if (plane.Height - RecommendedHeight > 1000 || RecommendedHeight - plane.Height > 1000)
             {
-                Penalty += 1000;
+                throw new FinesOverflowException();
             }
             else if (plane.Height - RecommendedHeight > 600 || RecommendedHeight - plane.Height > 600)
             {

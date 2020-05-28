@@ -14,11 +14,15 @@ namespace SimulatorPilot
         public bool IsFlightCompleted { get; set; } = false;
         public bool IsReachMaximumSpeed { get; set; } = false;
         public int TotalFines { get; set; } = 0;
-        public int MaxSpeed { get; } = 1000;
+        public int NumberDispatchers { get; set; } = 2;
+        public int TotalPoints { get; set; }
+        public int ArithmeticMean { get; set; }
 
         Dictionary<EAction, Action> Actions { get; set; }
 
-        private readonly string PathImageFile = "plane.txt"; 
+        private readonly string PathImageFile = "plane.txt";
+        private const int MAX_SPEED = 1000;
+        private const int MAX_ARITHMETIC_VALUE = 750;
 
         public Plane()
         {
@@ -39,6 +43,8 @@ namespace SimulatorPilot
 
         public void Flight()
         {
+            CalculateArithmeticMean();
+
             try
             {
                 Actions[Pilot.GiveCommand()]();
@@ -55,12 +61,24 @@ namespace SimulatorPilot
             CheckForTouchdown();
         }
 
+        public void CalculateArithmeticMean()
+        {
+            ArithmeticMean = TotalPoints / NumberDispatchers;
+            TotalPoints = 0;
+
+            if(ArithmeticMean >= MAX_ARITHMETIC_VALUE)
+            {
+                throw new ArithmeticMeanTooLargeException();
+            }
+        }
+
         public void Show()
         {
             Console.Clear();
 
             Console.WriteLine($"Текущая скорость: {Speed}\n" +
-                $"Текущая высота: {Height}");
+                $"Текущая высота: {Height}" +
+                $"\t\tСреднее арифметическое = {ArithmeticMean}");
 
             PrintPlane();
         }
@@ -92,7 +110,7 @@ namespace SimulatorPilot
         }
         private void CheckMaximumHeight()
         {
-            if (Speed == MaxSpeed)
+            if (Speed == MAX_SPEED)
             {
                 IsReachMaximumSpeed = true;
             }
@@ -114,7 +132,7 @@ namespace SimulatorPilot
 
         private void ActionInereasaSpeead()
         {
-            if (Speed < MaxSpeed)
+            if (Speed < MAX_SPEED)
             {
                 Speed += 50;
             }
@@ -147,10 +165,9 @@ namespace SimulatorPilot
                 Height -= 250;
             }
         }
-
         private void ActionSignificantlyInereasaSpeead()
         {
-            if (Speed < MaxSpeed)
+            if (Speed < MAX_SPEED)
             {
                 Speed += 150;
             }
