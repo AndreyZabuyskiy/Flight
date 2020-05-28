@@ -78,7 +78,6 @@ namespace SimulatorPilot
             ShowHandler();
             MyPlane.Flight();
             FlyCnange.Invoke(MyPlane);
-            MyPlane.CalculateArithmeticMean();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace SimulatorPilot
         public int NumberDispatchers { get; set; } = 2;
         public int TotalPoints { get; set; }
         public int ArithmeticMean { get; set; }
+        public int TotalHeight { get; set; }
+        public int RecommendedHeight { get; set; }
 
         Dictionary<EAction, Action> Actions { get; set; }
 
@@ -43,8 +45,6 @@ namespace SimulatorPilot
 
         public void Flight()
         {
-            CalculateArithmeticMean();
-
             try
             {
                 Actions[Pilot.GiveCommand()]();
@@ -61,7 +61,7 @@ namespace SimulatorPilot
             CheckForTouchdown();
         }
 
-        public void CalculateArithmeticMean()
+        public int CalculateArithmeticMean()
         {
             ArithmeticMean = TotalPoints / NumberDispatchers;
             TotalPoints = 0;
@@ -70,15 +70,25 @@ namespace SimulatorPilot
             {
                 throw new ArithmeticMeanTooLargeException();
             }
+
+            return ArithmeticMean;
         }
 
+        public int CalculateRecommendedHeight()
+        {
+            RecommendedHeight = TotalHeight / NumberDispatchers;
+            TotalHeight = 0;
+
+            return RecommendedHeight;
+        }
         public void Show()
         {
             Console.Clear();
 
-            Console.WriteLine($"Текущая скорость: {Speed}\n" +
+            Console.WriteLine($"Текущая скорость: {Speed}" +
+                $"\t\tСреднее арифметическое: {CalculateArithmeticMean()}\n" +
                 $"Текущая высота: {Height}" +
-                $"\t\tСреднее арифметическое = {ArithmeticMean}");
+                $"\t\tРекомендуемая высота: {CalculateRecommendedHeight()}");
 
             PrintPlane();
         }

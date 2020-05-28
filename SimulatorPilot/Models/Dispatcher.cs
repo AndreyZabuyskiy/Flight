@@ -12,6 +12,7 @@ namespace SimulatorPilot
         public void FlyChangeNotify(Plane plane)
         {
             RecommendedHeight = GetReccomendHeight(plane);
+            plane.TotalHeight += RecommendedHeight;
             WriteOutFine(plane);
             plane.TotalPoints += Penalty;
         }
