@@ -13,18 +13,11 @@ namespace SimulatorPilot
         public Pilot Pilot { get; set; } = new Pilot("I");
         public bool IsFlightCompleted { get; set; } = false;
         public bool IsReachMaximumSpeed { get; set; } = false;
-        public int TotalFines { get; set; } = 0;
-        public int NumberDispatchers { get; set; } = 2;
-        public int TotalPoints { get; set; }
-        public int ArithmeticMean { get; set; }
-        public int TotalHeight { get; set; }
-        public int RecommendedHeight { get; set; }
 
         Dictionary<EAction, Action> Actions { get; set; }
 
         private readonly string PathImageFile = "plane.txt";
         private const int MAX_SPEED = 1000;
-        private const int MAX_ARITHMETIC_VALUE = 750;
 
         public Plane()
         {
@@ -61,34 +54,14 @@ namespace SimulatorPilot
             CheckForTouchdown();
         }
 
-        public int CalculateArithmeticMean()
-        {
-            ArithmeticMean = TotalPoints / NumberDispatchers;
-            TotalPoints = 0;
-
-            if(ArithmeticMean >= MAX_ARITHMETIC_VALUE)
-            {
-                throw new ArithmeticMeanTooLargeException();
-            }
-
-            return ArithmeticMean;
-        }
-
-        public int CalculateRecommendedHeight()
-        {
-            RecommendedHeight = TotalHeight / NumberDispatchers;
-            TotalHeight = 0;
-
-            return RecommendedHeight;
-        }
-        public void Show()
+        public void Show(int recommendedHeight, int arithmeticPenalty)
         {
             Console.Clear();
 
             Console.WriteLine($"Текущая скорость: {Speed}" +
-                $"\t\tСреднее арифметическое: {CalculateArithmeticMean()}\n" +
+                $"\t\tСреднее арифметическое: {arithmeticPenalty}\n" +
                 $"Текущая высота: {Height}" +
-                $"\t\tРекомендуемая высота: {CalculateRecommendedHeight()}");
+                $"\t\tРекомендуемая высота: {recommendedHeight}");
 
             PrintPlane();
         }

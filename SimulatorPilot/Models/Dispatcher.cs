@@ -7,14 +7,16 @@ namespace SimulatorPilot
         public string Name { get; set; }
         public int WeatherCorrection { get; set; }
         public int Penalty { get; set; } = 0;
-        private int RecommendedHeight { get; set; }
+        public int RecommendedHeight { get; set; }
 
-        public void FlyChangeNotify(Plane plane)
+        public void Work(Plane plane)
         {
             RecommendedHeight = GetReccomendHeight(plane);
-            plane.TotalHeight += RecommendedHeight;
             WriteOutFine(plane);
-            plane.TotalPoints += Penalty;
+        }
+        private int GetReccomendHeight(Plane plane)
+        {
+            return 6 * plane.Speed - WeatherCorrection;
         }
         private void WriteOutFine(Plane plane)
         {
@@ -35,10 +37,6 @@ namespace SimulatorPilot
             {
                 throw new FinesOverflowException();
             }
-        }
-        private int GetReccomendHeight(Plane plane)
-        {
-            return 6 * plane.Speed - WeatherCorrection;
         }
 
         public void Print()

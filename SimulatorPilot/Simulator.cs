@@ -14,27 +14,27 @@ namespace SimulatorPilot
 
         public Simulator()
         {
-            Dispatchers = new List<Dispatcher>();
-            Dispatchers.Add(new Dispatcher
+            Dispatchers = new List<Dispatcher>
             {
-                Name = "First",
-                WeatherCorrection = new Random().Next(-200, 200)
-            });
-            Dispatchers.Add(new Dispatcher
-            {
-                Name = "Second",
-                WeatherCorrection = new Random().Next(-200, 200)
-            });
+                new Dispatcher
+                {
+                    Name = "First",
+                    WeatherCorrection = new Random().Next(-200, 200)
+                },
+                new Dispatcher
+                {
+                    Name = "Second",
+                    WeatherCorrection = new Random().Next(-200, 200)
+                }
+            };
 
             SignDispatchers();
         }
         private void SignDispatchers()
         {
-            ShowHandler += MyPlane.Show;
-
             foreach (var d in Dispatchers)
             {
-                FlyCnange += d.FlyChangeNotify;
+                FlyCnange += d.Work;
                 ShowHandler += d.Print;
             }
         }
@@ -75,9 +75,33 @@ namespace SimulatorPilot
         }
         private void Move()
         {
+            MyPlane.Show(CalculateRecommendedHeight(), CalculateArithmeticPenalty());
             ShowHandler();
             MyPlane.Flight();
             FlyCnange.Invoke(MyPlane);
+        }
+
+        public int CalculateRecommendedHeight()
+        {
+            int TotalHeight = 0;
+
+            foreach (var dis in Dispatchers)
+            {
+                TotalHeight += dis.RecommendedHeight;
+            }
+
+            return TotalHeight / Dispatchers.Count;
+        }
+        public int CalculateArithmeticPenalty()
+        {
+            int totalPenalty = 0;
+
+            foreach (var dis in Dispatchers)
+            {
+                totalPenalty += dis.Penalty;
+            }
+
+            return totalPenalty / Dispatchers.Count;
         }
     }
 }
