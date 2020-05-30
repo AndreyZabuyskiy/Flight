@@ -22,7 +22,6 @@ namespace SimulatorPilot
             FillDispatchers();
             SignDispatchers();
         }
-
         private void FillPlane()
         {
             Console.Write("Введите имя:\n->");
@@ -58,12 +57,16 @@ namespace SimulatorPilot
         }
         private void SignDispatchers()
         {
+            FlyCnange = null;
+            ShowHandler = null;
+
             foreach (var d in Dispatchers)
             {
                 FlyCnange += d.Work;
                 ShowHandler += d.Print;
             }
         }
+
 
         public void Flight()
         {
@@ -76,6 +79,10 @@ namespace SimulatorPilot
                 catch (OpenMenuException)
                 {
                     MenuDispatchers();
+                }
+                catch (KeyNotFoundException)
+                {
+                    Console.Clear();
                 }
                 catch (ZeroValueException ex)
                 {
@@ -124,10 +131,6 @@ namespace SimulatorPilot
         private void MenuDispatchers()
         {
             while (Action()) ;
-
-            FlyCnange = null;
-            ShowHandler = null;
-
             SignDispatchers();
         }
         private bool Action()

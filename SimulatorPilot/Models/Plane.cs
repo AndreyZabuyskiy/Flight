@@ -65,6 +65,11 @@ namespace SimulatorPilot
             {
                 throw ex;
             }
+            catch(KeyNotFoundException ex)
+            {
+                throw ex;
+            }
+
 
             Console.Clear();
 
