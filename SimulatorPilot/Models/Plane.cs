@@ -88,6 +88,9 @@ namespace SimulatorPilot
                 $"Текущая высота: {Height}" +
                 $"\t\tРекомендуемая высота: {recommendedHeight}");
 
+            if (IsReachMaximumSpeed) 
+                Console.WriteLine("\nМаксимальная скорость достигнута, посадите самолёт!\n");
+
             PrintPlane();
 
             Console.WriteLine("[1] Открыть меню с диспетчерами\n");
@@ -95,11 +98,13 @@ namespace SimulatorPilot
         private void PrintPlane()
         {
             string[] content = File.ReadAllLines(PathImageFile);
-
+            
+            Console.WriteLine();
             foreach (var buff in content)
             {
                 Console.WriteLine(buff);
             }
+            Console.WriteLine();
         }
 
         private void ShowVictory()

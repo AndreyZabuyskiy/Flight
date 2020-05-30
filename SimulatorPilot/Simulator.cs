@@ -24,7 +24,7 @@ namespace SimulatorPilot
         }
         private void FillPlane()
         {
-            Console.Write("Введите имя:\n->");
+            Console.Write("Имя пилота:\n->");
             Plane = new Plane(Console.ReadLine());
         }
         private void FillDispatchers()
@@ -35,7 +35,7 @@ namespace SimulatorPilot
             for(int i = 0; i < count; ++i)
             {
                 Console.Clear();
-                Console.Write($"Диспетчер #{i + 1}\n->");
+                Console.Write($"Имя диспетчера #{i + 1}\n->");
                 Dispatchers.Add(new Dispatcher(Console.ReadLine()));
             }
         }
@@ -57,16 +57,20 @@ namespace SimulatorPilot
         }
         private void SignDispatchers()
         {
-            FlyCnange = null;
-            ShowHandler = null;
-
             foreach (var d in Dispatchers)
             {
                 FlyCnange += d.Work;
                 ShowHandler += d.Print;
             }
         }
-
+        private void UnsubscribeDispatchers()
+        {
+            foreach (var dispatcher in Dispatchers)
+            {
+                FlyCnange -= dispatcher.Work;
+                ShowHandler -= dispatcher.Print;
+            }
+        }
 
         public void Flight()
         {
@@ -130,6 +134,7 @@ namespace SimulatorPilot
 
         private void MenuDispatchers()
         {
+            UnsubscribeDispatchers();
             while (Action()) ;
             SignDispatchers();
         }
@@ -161,13 +166,10 @@ namespace SimulatorPilot
             PrintDispatchers();
 
             if (Dispatchers.Count < 5)
-            {
                 Console.WriteLine("[1] Добавить;");
-            }
+
             if (Dispatchers.Count > 2)
-            {
                 Console.WriteLine("[2] Удалить;");
-            }
 
             Console.Write("[0] Выход\n->");
         }
@@ -203,7 +205,7 @@ namespace SimulatorPilot
 
             foreach (var dis in Dispatchers)
             {
-                Console.WriteLine($"[{iterator++}] {dis.Name}: {dis.Penalty}");
+                Console.WriteLine($"{iterator++}. {dis.Name}: {dis.Penalty}");
             }
             Console.WriteLine();
         }

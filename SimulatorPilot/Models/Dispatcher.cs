@@ -54,8 +54,8 @@ namespace SimulatorPilot
 
         public void Print()
         {
-            Console.WriteLine($" {Name}: штраф. баллов: {Penalty}\n" +
-                $"[Рекомендуемая высота: {RecommendedHeight}]");
+            Console.WriteLine($"Диспетчер {Name}, штрафные очки: {Penalty}, " +
+                $"рекомендуемая высота {RecommendedHeight}м");
         }
     }
 }
