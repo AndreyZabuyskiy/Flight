@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Программирование\\C#\\Консоль\\Задание №15\\SimulatorPilot\\SimulatorPilot\\SimulatorPilot.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\Flight\\SimulatorPilot\\SimulatorPilot.csproj",
       "projectName": "SimulatorPilot",
-      "projectPath": "D:\\Программирование\\C#\\Консоль\\Задание №15\\SimulatorPilot\\SimulatorPilot\\SimulatorPilot.csproj",
+      "projectPath": "C:\\Users\\andre\\Flight\\SimulatorPilot\\SimulatorPilot.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "D:\\Программирование\\C#\\Консоль\\Задание №15\\SimulatorPilot\\SimulatorPilot\\obj\\",
+      "outputPath": "C:\\Users\\andre\\Flight\\SimulatorPilot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",

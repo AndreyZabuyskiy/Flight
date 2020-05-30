@@ -6,28 +6,11 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        private bool Action()
+        private void MenuDispatchers()
         {
-            Print();
-
-            if (int.TryParse(Console.ReadLine(), out int command))
-            {
-                switch (command)
-                {
-                    case 0:
-                        return false;
-
-                    case 1 when Dispatchers.Count < 5:
-                        Dispatchers.Add(new Dispatcher(GetName(), Plane));
-                        break;
-
-                    case 2 when Dispatchers.Count > 2:
-                        RemoveDispatcher();
-                        break;
-                }
-            }
-
-            return true;
+            UnsubscribeDispatchers();
+            while (Action()) ;
+            SubscribeDispatchers();
         }
         private void Print()
         {

@@ -9,3 +9,25 @@ D:\Программирование\C#\Консоль\Задание №15\Simul
 D:\Программирование\C#\Консоль\Задание №15\SimulatorPilot\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.AssemblyInfo.cs
 D:\Программирование\C#\Консоль\Задание №15\SimulatorPilot\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.dll
 D:\Программирование\C#\Консоль\Задание №15\SimulatorPilot\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.pdb
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.csprojAssemblyReference.cache
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.AssemblyInfoInputs.cache
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.AssemblyInfo.cs
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.dll
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.pdb
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.exe
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.deps.json
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.runtimeconfig.json
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.runtimeconfig.dev.json
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.dll
+D:\Программирование\C#\Консоль\Задание №15\Flight-master\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.pdb
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.exe
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.deps.json
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.runtimeconfig.json
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.runtimeconfig.dev.json
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.dll
+C:\Users\andre\Flight\SimulatorPilot\bin\Debug\netcoreapp3.0\SimulatorPilot.pdb
+C:\Users\andre\Flight\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.csprojAssemblyReference.cache
+C:\Users\andre\Flight\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.AssemblyInfoInputs.cache
+C:\Users\andre\Flight\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.AssemblyInfo.cs
+C:\Users\andre\Flight\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.dll
+C:\Users\andre\Flight\SimulatorPilot\obj\Debug\netcoreapp3.0\SimulatorPilot.pdb
