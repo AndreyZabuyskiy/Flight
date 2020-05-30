@@ -20,23 +20,6 @@ namespace SimulatorPilot
         private readonly string PathImageFile = "plane.txt";
         private const int MAX_SPEED = 1000;
 
-        public Plane()
-        {
-            Victory += ShowVictory;
-            Actions = new Dictionary<EAction, Action>
-            {
-                { EAction.InereasaSpeead, ActionInereasaSpeead },
-                { EAction.ReduceSpeead, ActionReduceSpeead },
-                { EAction.IncreaseHeight, ActionIncreaseHeight },
-                { EAction.ReduceHeight, ActionReduceHeight },
-                { EAction.SignificantlyInereasaSpeead, ActionSignificantlyInereasaSpeead },
-                { EAction.SignificantlyReduceSpeead, ActionSignificantlyReduceSpeead },
-                { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
-                { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
-                { EAction.OpenMenu, () => throw new OpenMenuException() }
-            };
-        }
-
         public Plane(string name)
         {
             Pilot = new Pilot(name);
