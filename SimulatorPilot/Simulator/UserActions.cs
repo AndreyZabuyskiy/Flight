@@ -20,12 +20,6 @@ namespace SimulatorPilot.Simulator
             return count;
         }
 
-        private void MenuDispatchers()
-        {
-            UnsubscribeDispatchers();
-            while (Action()) ;
-            SubscribeDispatchers();
-        }
         private bool Action()
         {
             Print();
@@ -49,7 +43,6 @@ namespace SimulatorPilot.Simulator
 
             return true;
         }
-
         private string GetName()
         {
             Console.Clear();

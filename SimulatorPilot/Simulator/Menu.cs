@@ -6,36 +6,29 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        public void Flight()
+        private bool Action()
         {
-            while (!Plane.IsFlightCompleted)
+            Print();
+
+            if (int.TryParse(Console.ReadLine(), out int command))
             {
-                try
+                switch (command)
                 {
-                    Move();
-                }
-                catch (OpenMenuException)
-                {
-                    MenuDispatchers();
-                }
-                catch (KeyNotFoundException) { }
-                catch (ZeroValueException) { }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    break;
+                    case 0:
+                        return false;
+
+                    case 1 when Dispatchers.Count < 5:
+                        Dispatchers.Add(new Dispatcher(GetName(), Plane));
+                        break;
+
+                    case 2 when Dispatchers.Count > 2:
+                        RemoveDispatcher();
+                        break;
                 }
             }
-        }
-        private void Move()
-        {
-            Plane.AverageFines = CalculateArithmeticPenalty();
-            Plane.Show(CalculateRecommendedHeight());
-            ShowHandler();
-            Plane.Flight();
-            FlyCnange.Invoke(Plane);
-        }
 
+            return true;
+        }
         private void Print()
         {
             PrintDispatchers();
