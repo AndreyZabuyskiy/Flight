@@ -10,9 +10,10 @@ namespace SimulatorPilot
 
         public int Speed { get; set; } = 0;
         public int Height { get; set; } = 0;
-        public Pilot Pilot { get; set; } = new Pilot("I");
+        public Pilot Pilot { get; set; }
         public bool IsFlightCompleted { get; set; } = false;
         public bool IsReachMaximumSpeed { get; set; } = false;
+        public int AverageFines { get; set; }
 
         Dictionary<EAction, Action> Actions { get; set; }
 
@@ -22,7 +23,6 @@ namespace SimulatorPilot
         public Plane()
         {
             Victory += ShowVictory;
-
             Actions = new Dictionary<EAction, Action>
             {
                 { EAction.InereasaSpeead, ActionInereasaSpeead },
@@ -33,6 +33,25 @@ namespace SimulatorPilot
                 { EAction.SignificantlyReduceSpeead, ActionSignificantlyReduceSpeead },
                 { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
                 { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
+                { EAction.OpenMenu, () => throw new OpenMenuException() }
+            };
+        }
+
+        public Plane(string name)
+        {
+            Pilot = new Pilot(name);
+            Victory += ShowVictory;
+            Actions = new Dictionary<EAction, Action>
+            {
+                { EAction.InereasaSpeead, ActionInereasaSpeead },
+                { EAction.ReduceSpeead, ActionReduceSpeead },
+                { EAction.IncreaseHeight, ActionIncreaseHeight },
+                { EAction.ReduceHeight, ActionReduceHeight },
+                { EAction.SignificantlyInereasaSpeead, ActionSignificantlyInereasaSpeead },
+                { EAction.SignificantlyReduceSpeead, ActionSignificantlyReduceSpeead },
+                { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
+                { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
+                { EAction.OpenMenu, () => throw new OpenMenuException() }
             };
         }
 
@@ -42,7 +61,7 @@ namespace SimulatorPilot
             {
                 Actions[Pilot.GiveCommand()]();
             }
-            catch(ZeroValueException ex)
+            catch (ZeroValueException ex)
             {
                 throw ex;
             }
@@ -54,16 +73,19 @@ namespace SimulatorPilot
             CheckForTouchdown();
         }
 
-        public void Show(int recommendedHeight, int arithmeticPenalty)
+        public void Show(int recommendedHeight)
         {
             Console.Clear();
 
-            Console.WriteLine($"Текущая скорость: {Speed}" +
-                $"\t\tСреднее арифметическое: {arithmeticPenalty}\n" +
+            Console.WriteLine($"\t\t\tИмя пилота: {Pilot.Name}\n" +
+                $"Текущая скорость: {Speed}" +
+                $"\t\tСреднее арифметическое штрафов: {AverageFines}\n" +
                 $"Текущая высота: {Height}" +
                 $"\t\tРекомендуемая высота: {recommendedHeight}");
 
             PrintPlane();
+
+            Console.WriteLine("[1] Открыть меню с диспетчерами\n");
         }
         private void PrintPlane()
         {

@@ -9,6 +9,7 @@
         SignificantlyIncreaseHeight,
         SignificantlyInereasaSpeead,
         SignificantlyReduceHeight,
-        SignificantlyReduceSpeead
+        SignificantlyReduceSpeead,
+        OpenMenu
     }
 }

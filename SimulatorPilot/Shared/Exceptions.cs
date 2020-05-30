@@ -26,4 +26,6 @@ namespace SimulatorPilot
     {
         public override string Message => "Слишком большое среднее арифметическое!!!";
     }
+
+    class OpenMenuException : Exception { }
 }

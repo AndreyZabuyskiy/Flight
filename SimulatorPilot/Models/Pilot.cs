@@ -25,9 +25,11 @@ namespace SimulatorPilot
                 { ConsoleKey.LeftArrow, EAction.ReduceSpeead },
                 { ConsoleKey.RightArrow, EAction.InereasaSpeead },
                 { ConsoleKey.UpArrow, EAction.IncreaseHeight },
-                { ConsoleKey.DownArrow, EAction.ReduceHeight }
+                { ConsoleKey.DownArrow, EAction.ReduceHeight },
+                { ConsoleKey.D1, EAction.OpenMenu},
+                { ConsoleKey.NumPad1, EAction.OpenMenu}
             };
-
+            
             SignificantlyInstructions = new Dictionary<ConsoleKey, EAction>
             {
                 { ConsoleKey.LeftArrow, EAction.SignificantlyReduceSpeead },
@@ -39,22 +41,13 @@ namespace SimulatorPilot
 
         public EAction GiveCommand()
         {
-            while (true)
-            {
-                ConsoleKeyInfo key = Console.ReadKey();
+            ConsoleKeyInfo key = Console.ReadKey();
 
-                var _instructions =
-                    key.Modifiers == ConsoleModifiers.Control ?
-                    SignificantlyInstructions : Instructions;
+            var _instructions =
+                key.Modifiers == ConsoleModifiers.Control ?
+                SignificantlyInstructions : Instructions;
 
-                foreach (var item in _instructions)
-                {
-                    if(item.Key == key.Key)
-                    {
-                        return item.Value;
-                    }
-                }
-            }
+            return _instructions[key.Key];
         }
     }
 }

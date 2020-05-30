@@ -6,9 +6,22 @@ namespace SimulatorPilot
     {
         public string Name { get; set; }
         public int WeatherCorrection { get; set; }
-        public int Penalty { get; set; } = 0;
+        public int Penalty { get; set; }
         public int RecommendedHeight { get; set; }
 
+        public Dispatcher(string name)
+        {
+            Name = name;
+            WeatherCorrection = new Random().Next(-200, 200);
+        }
+        public Dispatcher(string name, Plane plane)
+        {
+            Name = name;
+            WeatherCorrection = new Random().Next(-200, 200);
+            Penalty = plane.AverageFines;
+            RecommendedHeight = GetReccomendHeight(plane);
+        }
+        
         public void Work(Plane plane)
         {
             RecommendedHeight = GetReccomendHeight(plane);
