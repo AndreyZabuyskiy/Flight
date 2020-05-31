@@ -27,6 +27,7 @@ namespace SimulatorPilot.Simulator
                 }
             }
         }
+
         private void FlightProcess()
         {
             Plane.AverageFines = CalculateArithmeticPenalty();

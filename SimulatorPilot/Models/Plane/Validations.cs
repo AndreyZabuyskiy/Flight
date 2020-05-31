@@ -13,6 +13,7 @@ namespace SimulatorPilot.Models.Plane
                 throw new PlaneCrashedException();
             }
         }
+
         private void ReachedMaxHeightCheck()
         {
             if (Speed == MAX_SPEED)
@@ -20,6 +21,7 @@ namespace SimulatorPilot.Models.Plane
                 IsReachedMaxSpeed = true;
             }
         }
+
         private void EndFlightCheck()
         {
             if (Height == 0 && Speed == 0 && !IsReachedMaxSpeed)

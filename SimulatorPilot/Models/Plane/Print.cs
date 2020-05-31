@@ -22,6 +22,7 @@ namespace SimulatorPilot.Models.Plane
 
             Console.WriteLine("[1] Открыть меню с диспетчерами\n");
         }
+
         private void PrintPlane()
         {
             string[] content = File.ReadAllLines(PATH_TO_PLANE_IMAGE);

@@ -7,9 +7,10 @@ namespace SimulatorPilot.Simulator
         private void OpenDispatchersMenu()
         {
             UnsubscribeDispatchers();
-            while (DispatchersMenu()) ;
+            DispatchersMenu();
             SubscribeDispatchers();
         }
+
         private void ShowActionsForDispatchersMenu()
         {
             ShowDispatchersList();
@@ -22,6 +23,7 @@ namespace SimulatorPilot.Simulator
 
             Console.Write("[0] Выход\n->");
         }
+
         private void RemoveDispatcherMenu()
         {
             int idx;

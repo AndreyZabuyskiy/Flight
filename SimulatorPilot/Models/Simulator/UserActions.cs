@@ -18,29 +18,37 @@ namespace SimulatorPilot.Simulator
             return count;
         }
 
-        private bool DispatchersMenu()
+        private void DispatchersMenu()
         {
-            ShowActionsForDispatchersMenu();
+            ConsoleKeyInfo keyInfo;
 
-            if (int.TryParse(Console.ReadLine(), out int command))
+            do
             {
-                switch (command)
-                {
-                    case 0:
-                        return false;
+                ShowActionsForDispatchersMenu();
+                keyInfo = Console.ReadKey();
 
-                    case 1 when Dispatchers.Count < 5:
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.NumPad1 when Dispatchers.Count < 5:
                         Dispatchers.Add(new Dispatcher(GetName(), Plane));
                         break;
 
-                    case 2 when Dispatchers.Count > 2:
+                    case ConsoleKey.D1 when Dispatchers.Count < 5:
+                        Dispatchers.Add(new Dispatcher(GetName(), Plane));
+                        break;
+
+                    case ConsoleKey.NumPad2 when Dispatchers.Count > 2:
+                        RemoveDispatcherMenu();
+                        break;
+
+                    case ConsoleKey.D2 when Dispatchers.Count > 2:
                         RemoveDispatcherMenu();
                         break;
                 }
-            }
 
-            return true;
+            } while (!(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0));
         }
+
         private string GetName()
         {
             Console.Clear();

@@ -13,6 +13,7 @@
 
             return totalHeight / Dispatchers.Count;
         }
+
         public int CalculateArithmeticPenalty()
         {
             int totalPenalty = 0;

@@ -28,10 +28,12 @@ namespace SimulatorPilot
             RecommendedHeight = GetReccomendHeight(plane);
             WriteOutFine(plane);
         }
+
         private int GetReccomendHeight(Plane plane)
         {
             return 6 * plane.Speed - WeatherCorrection;
         }
+
         private void WriteOutFine(Plane plane)
         {
             if (plane.Height - RecommendedHeight > 1000 || RecommendedHeight - plane.Height > 1000)
