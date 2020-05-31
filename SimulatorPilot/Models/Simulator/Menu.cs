@@ -24,26 +24,25 @@ namespace SimulatorPilot.Simulator
         }
         private void RemoveDispatcherMenu()
         {
-            while (true)
+            int idx;
+
+            do
             {
                 ShowDispatchersList();
-                Console.Write("Выбирите порядковый номер:\n->");
+                Console.Write("Выберите порядковый номер:\n" +
+                    "[0] Назад;\n->");
 
-                if (int.TryParse(Console.ReadLine(), out int idx))
+                if (!int.TryParse(Console.ReadLine(), out idx)) continue;
+
+                try
                 {
-                    try
-                    {
-                        idx--;
-                        Dispatchers.RemoveAt(idx);
-                        break;
-                    }
-                    catch (ArgumentOutOfRangeException)
-                    {
-                        Console.WriteLine("Диспетчера по данному номеру не найдено!");
-                        Console.ReadLine();
-                    }
+                    Dispatchers.RemoveAt(--idx);
                 }
-            }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Неверный порядковый номер диспетчера!\n");
+                }
+            } while (!(idx == -1 || Dispatchers.Count <= MIN_COUNT_DISPETCHER));
         }
 
         private void ShowDispatchersList()

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 
 namespace SimulatorPilot.Models.Plane
@@ -10,7 +9,7 @@ namespace SimulatorPilot.Models.Plane
         {
             Console.Clear();
 
-            Console.WriteLine($"\t\t\tИмя пилота: {Pilot.Name}\n" +
+            Console.WriteLine($"\t\t\tИмя пилота: {Pilot.Name}\n\n" +
                 $"Текущая скорость: {Speed}" +
                 $"\t\tСреднее арифметическое штрафов: {AverageFines}\n" +
                 $"Текущая высота: {Height}" +
