@@ -16,12 +16,12 @@ namespace SimulatorPilot.Models.Plane
         {
             Actions = new Dictionary<EAction, Action>
             {
-                { EAction. IncreaseSpeed, ActionInereasaSpeead },
-                { EAction.ReduceSpeed, ActionReduceSpeead },
+                { EAction. IncreaseSpeed, ActionIncreaseSpeed },
+                { EAction.ReduceSpeed, ActionReduceSpeed },
                 { EAction.IncreaseHeight, ActionIncreaseHeight },
                 { EAction.ReduceHeight, ActionReduceHeight },
-                { EAction.SignificantlyIncreaseSpeed, ActionSignificantlyInereasaSpeead },
-                { EAction.SignificantlyReduceSpeed, ActionSignificantlyReduceSpeead },
+                { EAction.SignificantlyIncreaseSpeed, ActionSignificantlyIncreaseSpeed },
+                { EAction.SignificantlyReduceSpeed, ActionSignificantlyReduceSpeed },
                 { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
                 { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
                 { EAction.OpenMenu, () => throw new OpenMenuException() }

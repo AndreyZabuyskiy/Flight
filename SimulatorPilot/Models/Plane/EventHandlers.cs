@@ -2,14 +2,14 @@
 {
     partial class Plane
     {
-        private void ActionInereasaSpeead()
+        private void ActionIncreaseSpeed()
         {
             if (Speed < MAX_SPEED)
             {
                 Speed += 50;
             }
         }
-        private void ActionReduceSpeead()
+        private void ActionReduceSpeed()
         {
             if (Speed == 0)
             {
@@ -37,14 +37,14 @@
                 Height -= 250;
             }
         }
-        private void ActionSignificantlyInereasaSpeead()
+        private void ActionSignificantlyIncreaseSpeed()
         {
             if (Speed < MAX_SPEED)
             {
                 Speed += 150;
             }
         }
-        private void ActionSignificantlyReduceSpeead()
+        private void ActionSignificantlyReduceSpeed()
         {
             if (Speed == 0)
             {
