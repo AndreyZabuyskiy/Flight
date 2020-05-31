@@ -4,14 +4,14 @@
     {
         public int CalculateRecommendedHeight()
         {
-            int TotalHeight = 0;
+            int totalHeight = 0;
 
             foreach (var dis in Dispatchers)
             {
-                TotalHeight += dis.RecommendedHeight;
+                totalHeight += dis.RecommendedHeight;
             }
 
-            return TotalHeight / Dispatchers.Count;
+            return totalHeight / Dispatchers.Count;
         }
         public int CalculateArithmeticPenalty()
         {

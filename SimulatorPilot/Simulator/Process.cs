@@ -6,17 +6,17 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        public void Flight()
+        public void StartFlight()
         {
             while (!Plane.IsFlightCompleted)
             {
                 try
                 {
-                    Move();
+                    FlightProcess();
                 }
                 catch (OpenMenuException)
                 {
-                    MenuDispatchers();
+                    OpenDispatchersMenu();
                 }
                 catch (KeyNotFoundException) { }
                 catch (DefaultValueException) { }
@@ -27,13 +27,13 @@ namespace SimulatorPilot.Simulator
                 }
             }
         }
-        private void Move()
+        private void FlightProcess()
         {
             Plane.AverageFines = CalculateArithmeticPenalty();
             Plane.ShowFlightInfo(CalculateRecommendedHeight());
-            ShowHandler();
+            DispatchersShowState();
             Plane.ChangeFlightState();
-            FlyChange.Invoke(Plane);
+            FlightStateChange.Invoke(Plane);
         }
     }
 }

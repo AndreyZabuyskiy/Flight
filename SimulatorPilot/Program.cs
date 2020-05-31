@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            new Simulator.Simulator().Flight();
+            new Simulator.Simulator().StartFlight();
         }
     }
 }

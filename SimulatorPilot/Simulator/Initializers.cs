@@ -8,18 +8,18 @@ namespace SimulatorPilot.Simulator
     {
         private void Initialization()
         {
-            FillPlane();
-            FillDispatchers();
+            InitializePlane();
+            InitializeDispatchers();
             SubscribeDispatchers();
         }
-        private void FillPlane()
+        private void InitializePlane()
         {
             Console.Write("Имя пилота:\n->");
             Plane = new Plane(Console.ReadLine());
         }
-        private void FillDispatchers()
+        private void InitializeDispatchers()
         {
-            int count = GetCountDispatchers();
+            int count = EnterCountDispatcher();
             Dispatchers = new List<Dispatcher>();
 
             for (int i = 0; i < count; ++i)
@@ -31,18 +31,18 @@ namespace SimulatorPilot.Simulator
         }
         private void SubscribeDispatchers()
         {
-            foreach (var d in Dispatchers)
+            foreach (var dispatcher in Dispatchers)
             {
-                FlyChange += d.Work;
-                ShowHandler += d.Print;
+                FlightStateChange += dispatcher.Work;
+                DispatchersShowState += dispatcher.Print;
             }
         }
         private void UnsubscribeDispatchers()
         {
             foreach (var dispatcher in Dispatchers)
             {
-                FlyChange -= dispatcher.Work;
-                ShowHandler -= dispatcher.Print;
+                FlightStateChange -= dispatcher.Work;
+                DispatchersShowState -= dispatcher.Print;
             }
         }
     }

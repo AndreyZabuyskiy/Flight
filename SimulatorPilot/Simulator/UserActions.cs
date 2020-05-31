@@ -4,7 +4,7 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        private int GetCountDispatchers()
+        private int EnterCountDispatcher()
         {
             int count;
             do
@@ -18,9 +18,9 @@ namespace SimulatorPilot.Simulator
             return count;
         }
 
-        private bool Action()
+        private bool DispatchersMenu()
         {
-            Print();
+            ShowActionsForDispatchersMenu();
 
             if (int.TryParse(Console.ReadLine(), out int command))
             {
@@ -34,7 +34,7 @@ namespace SimulatorPilot.Simulator
                         break;
 
                     case 2 when Dispatchers.Count > 2:
-                        RemoveDispatcher();
+                        RemoveDispatcherMenu();
                         break;
                 }
             }

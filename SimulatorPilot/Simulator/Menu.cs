@@ -4,15 +4,15 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        private void MenuDispatchers()
+        private void OpenDispatchersMenu()
         {
             UnsubscribeDispatchers();
-            while (Action()) ;
+            while (DispatchersMenu()) ;
             SubscribeDispatchers();
         }
-        private void Print()
+        private void ShowActionsForDispatchersMenu()
         {
-            PrintDispatchers();
+            ShowDispatchersList();
 
             if (Dispatchers.Count < 5)
                 Console.WriteLine("[1] Добавить;");
@@ -22,11 +22,11 @@ namespace SimulatorPilot.Simulator
 
             Console.Write("[0] Выход\n->");
         }
-        private void RemoveDispatcher()
+        private void RemoveDispatcherMenu()
         {
             while (true)
             {
-                PrintDispatchers();
+                ShowDispatchersList();
                 Console.Write("Выбирите порядковый номер:\n->");
 
                 if (int.TryParse(Console.ReadLine(), out int idx))
@@ -46,15 +46,15 @@ namespace SimulatorPilot.Simulator
             }
         }
 
-        private void PrintDispatchers()
+        private void ShowDispatchersList()
         {
             int iterator = 1;
 
             Console.Clear();
 
-            foreach (var dis in Dispatchers)
+            foreach (var dispatcher in Dispatchers)
             {
-                Console.WriteLine($"{iterator++}. {dis.Name}: {dis.Penalty}");
+                Console.WriteLine($"{iterator++}. {dispatcher.Name}: {dispatcher.Penalty}");
             }
             Console.WriteLine();
         }
