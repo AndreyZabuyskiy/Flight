@@ -7,7 +7,7 @@ namespace SimulatorPilot.Simulator
     partial class Simulator
     {
         public delegate void FlyHandler(Plane plane);
-        public event FlyHandler FlyCnange;
+        public event FlyHandler FlyChange;
         public event Action ShowHandler;
 
         public Plane Plane { get; set; }

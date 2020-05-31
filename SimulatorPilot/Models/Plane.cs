@@ -26,12 +26,12 @@ namespace SimulatorPilot
             Victory += ShowVictory;
             Actions = new Dictionary<EAction, Action>
             {
-                { EAction.InereasaSpeead, ActionInereasaSpeead },
-                { EAction.ReduceSpeead, ActionReduceSpeead },
+                { EAction. IncreaseSpeed, ActionInereasaSpeead },
+                { EAction.ReduceSpeed, ActionReduceSpeead },
                 { EAction.IncreaseHeight, ActionIncreaseHeight },
                 { EAction.ReduceHeight, ActionReduceHeight },
-                { EAction.SignificantlyInereasaSpeead, ActionSignificantlyInereasaSpeead },
-                { EAction.SignificantlyReduceSpeead, ActionSignificantlyReduceSpeead },
+                { EAction.SignificantlyIncreaseSpeed, ActionSignificantlyInereasaSpeead },
+                { EAction.SignificantlyReduceSpeed, ActionSignificantlyReduceSpeead },
                 { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
                 { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
                 { EAction.OpenMenu, () => throw new OpenMenuException() }

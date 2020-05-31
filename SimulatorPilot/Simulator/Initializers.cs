@@ -33,7 +33,7 @@ namespace SimulatorPilot.Simulator
         {
             foreach (var d in Dispatchers)
             {
-                FlyCnange += d.Work;
+                FlyChange += d.Work;
                 ShowHandler += d.Print;
             }
         }
@@ -41,7 +41,7 @@ namespace SimulatorPilot.Simulator
         {
             foreach (var dispatcher in Dispatchers)
             {
-                FlyCnange -= dispatcher.Work;
+                FlyChange -= dispatcher.Work;
                 ShowHandler -= dispatcher.Print;
             }
         }

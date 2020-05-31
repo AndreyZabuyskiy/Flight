@@ -22,8 +22,8 @@ namespace SimulatorPilot
 
             Instructions = new Dictionary<ConsoleKey, EAction>
             {
-                { ConsoleKey.LeftArrow, EAction.ReduceSpeead },
-                { ConsoleKey.RightArrow, EAction.InereasaSpeead },
+                { ConsoleKey.LeftArrow, EAction.ReduceSpeed },
+                { ConsoleKey.RightArrow, EAction. IncreaseSpeed },
                 { ConsoleKey.UpArrow, EAction.IncreaseHeight },
                 { ConsoleKey.DownArrow, EAction.ReduceHeight },
                 { ConsoleKey.D1, EAction.OpenMenu},
@@ -32,8 +32,8 @@ namespace SimulatorPilot
             
             SignificantlyInstructions = new Dictionary<ConsoleKey, EAction>
             {
-                { ConsoleKey.LeftArrow, EAction.SignificantlyReduceSpeead },
-                { ConsoleKey.RightArrow, EAction.SignificantlyInereasaSpeead },
+                { ConsoleKey.LeftArrow, EAction.SignificantlyReduceSpeed },
+                { ConsoleKey.RightArrow, EAction.SignificantlyIncreaseSpeed },
                 { ConsoleKey.UpArrow, EAction.SignificantlyIncreaseHeight },
                 { ConsoleKey.DownArrow, EAction.SignificantlyReduceHeight }
             };

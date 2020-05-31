@@ -3,13 +3,13 @@
     enum EAction
     {
         IncreaseHeight,
-        InereasaSpeead,
+        IncreaseSpeed,
         ReduceHeight,
-        ReduceSpeead,
+        ReduceSpeed,
         SignificantlyIncreaseHeight,
-        SignificantlyInereasaSpeead,
+        SignificantlyIncreaseSpeed,
         SignificantlyReduceHeight,
-        SignificantlyReduceSpeead,
+        SignificantlyReduceSpeed,
         OpenMenu
     }
 }

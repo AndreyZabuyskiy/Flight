@@ -33,7 +33,7 @@ namespace SimulatorPilot.Simulator
             Plane.Show(CalculateRecommendedHeight());
             ShowHandler();
             Plane.Flight();
-            FlyCnange.Invoke(Plane);
+            FlyChange.Invoke(Plane);
         }
     }
 }
