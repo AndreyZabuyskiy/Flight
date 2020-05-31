@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using SimulatorPilot.Models.Plane;
 
 namespace SimulatorPilot.Simulator
 {
@@ -19,7 +19,7 @@ namespace SimulatorPilot.Simulator
                     MenuDispatchers();
                 }
                 catch (KeyNotFoundException) { }
-                catch (ZeroValueException) { }
+                catch (DefaultValueException) { }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
@@ -30,9 +30,9 @@ namespace SimulatorPilot.Simulator
         private void Move()
         {
             Plane.AverageFines = CalculateArithmeticPenalty();
-            Plane.Show(CalculateRecommendedHeight());
+            Plane.ShowFlightInfo(CalculateRecommendedHeight());
             ShowHandler();
-            Plane.Flight();
+            Plane.ChangeFlightState();
             FlyChange.Invoke(Plane);
         }
     }

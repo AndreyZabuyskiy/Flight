@@ -12,14 +12,14 @@ namespace SimulatorPilot
         public override string Message => "Самолет набрал слишком много штрафов от диспетчера!!!";
     }
 
-    class ImproperLandingException : Exception
+    class WrongLandingException : Exception
     {
         public override string Message => "Самолет призимлился не набрав максимальной высоты!!!";
     }
 
-    class ZeroValueException : Exception
+    class DefaultValueException : Exception
     {
-        public override string Message => "Нулевое значение!!!";
+        public override string Message => "Значение по умолчанию!!!";
     }
 
     class ArithmeticMeanTooLargeException : Exception

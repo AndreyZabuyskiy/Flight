@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using SimulatorPilot.Models.Plane;
 
 namespace SimulatorPilot.Simulator
 {

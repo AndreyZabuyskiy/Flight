@@ -1,4 +1,5 @@
 ﻿using System;
+using SimulatorPilot.Models.Plane;
 
 namespace SimulatorPilot
 {
