@@ -24,7 +24,8 @@ namespace SimulatorPilot.Models.Plane
                 { EAction.SignificantlyReduceSpeed, ActionSignificantlyReduceSpeed },
                 { EAction.SignificantlyIncreaseHeight, ActionSignificantlyIncreaseHeight },
                 { EAction.SignificantlyReduceHeight, ActionSignificantlyReduceHeight },
-                { EAction.OpenMenu, () => throw new OpenMenuException() }
+                { EAction.OpenMenu, () => throw new OpenMenuException() },
+                { EAction.FlightCancellation, () => throw new FlightCancellationException() }
             };
         }
     }

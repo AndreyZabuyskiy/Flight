@@ -84,7 +84,7 @@ namespace SimulatorPilot.Simulator
 
                 keyInfo = Console.ReadKey();
 
-            } while (!(keyInfo.Key == ConsoleKey.Enter));
+            } while (keyInfo.Key != ConsoleKey.Enter);
         }
     }
 }

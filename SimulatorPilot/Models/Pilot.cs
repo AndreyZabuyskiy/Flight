@@ -27,7 +27,8 @@ namespace SimulatorPilot
                 { ConsoleKey.UpArrow, EAction.IncreaseHeight },
                 { ConsoleKey.DownArrow, EAction.ReduceHeight },
                 { ConsoleKey.D1, EAction.OpenMenu},
-                { ConsoleKey.NumPad1, EAction.OpenMenu}
+                { ConsoleKey.NumPad1, EAction.OpenMenu},
+                { ConsoleKey.Escape, EAction.FlightCancellation},
             };
             
             SignificantlyInstructions = new Dictionary<ConsoleKey, EAction>

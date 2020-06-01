@@ -28,4 +28,9 @@ namespace SimulatorPilot
     }
 
     class OpenMenuException : Exception { }
+
+    class FlightCancellationException : Exception
+    {
+        public override string Message => "Полет прерван!!!";
+    }
 }

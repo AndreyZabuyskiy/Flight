@@ -17,18 +17,19 @@ namespace SimulatorPilot.Simulator
 
             return count;
         }
-        private string GetNameDispatcher(int serialNumber)
+        
+        private string GetDispatcherName(int serialNumber)
         {
-            string nameDispatcher;
+            string dispatcherName;
 
             do
             {
                 Console.Clear();
                 Console.Write($"Имя диспетчера #{serialNumber}\n->");
-                nameDispatcher = Console.ReadLine();
-            } while (nameDispatcher.Equals(""));
+                dispatcherName = Console.ReadLine();
+            } while (dispatcherName.Trim().Equals(""));
 
-            return nameDispatcher;
+            return dispatcherName;
         }
 
         private void DispatchersMenu()
@@ -53,7 +54,7 @@ namespace SimulatorPilot.Simulator
                         break;
                 }
 
-            } while (!(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0));
+            } while (!(keyInfo.Key != ConsoleKey.D0 || keyInfo.Key != ConsoleKey.NumPad0));
         }
 
         private void AddNewDispatcher()
@@ -67,7 +68,7 @@ namespace SimulatorPilot.Simulator
                     "[0] Назад;\n->");
 
                 nameDispatcher = Console.ReadLine();
-            } while (nameDispatcher.Equals(""));
+            } while (nameDispatcher.Trim().Equals(""));
 
             if (!nameDispatcher.Equals("0"))
                 Dispatchers.Add(new Dispatcher(nameDispatcher, Plane));

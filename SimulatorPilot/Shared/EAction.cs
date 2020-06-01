@@ -10,6 +10,7 @@
         SignificantlyIncreaseSpeed,
         SignificantlyReduceHeight,
         SignificantlyReduceSpeed,
-        OpenMenu
+        OpenMenu,
+        FlightCancellation
     }
 }

@@ -25,10 +25,7 @@ namespace SimulatorPilot.Models.Plane
         private void EndFlightCheck()
         {
             if (Height == 0 && Speed == 0 && !IsReachedMaxSpeed)
-            {
-                Console.Clear();
                 throw new WrongLandingException();
-            }
 
             if (Height == 0 && Speed == 0 && IsReachedMaxSpeed)
             {

@@ -21,7 +21,7 @@ namespace SimulatorPilot.Simulator
                 Console.Clear();
                 Console.Write("Имя пилота:\n->");
                 namePilot = Console.ReadLine();
-            } while (namePilot.Equals(""));
+            } while (namePilot.Trim().Equals(""));
 
             Plane = new Plane(namePilot);
         }
@@ -33,7 +33,7 @@ namespace SimulatorPilot.Simulator
 
             for (int i = 0; i < count; ++i)
             {
-                Dispatchers.Add(new Dispatcher(GetNameDispatcher(i + 1)));
+                Dispatchers.Add(new Dispatcher(GetDispatcherName(i + 1)));
             }
 
             ShowUserGreeting();
