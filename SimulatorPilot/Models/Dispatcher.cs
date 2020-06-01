@@ -14,6 +14,7 @@ namespace SimulatorPilot
         {
             Name = name;
             WeatherCorrection = new Random().Next(-200, 200);
+            RecommendedHeight = 0;
         }
         public Dispatcher(string name, Plane plane)
         {

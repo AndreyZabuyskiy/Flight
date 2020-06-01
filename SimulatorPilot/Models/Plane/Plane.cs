@@ -23,5 +23,14 @@ namespace SimulatorPilot.Models.Plane
         {
             Initialize(pilotName);
         }
+
+        public void ResetSettings()
+        {
+            Speed = 0;
+            Height = 0;
+            IsFlightCompleted = false;
+            IsReachedMaxSpeed = false;
+            AverageFines = 0;
+        }
     }
 }

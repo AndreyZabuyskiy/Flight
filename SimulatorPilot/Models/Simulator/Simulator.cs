@@ -8,6 +8,7 @@ namespace SimulatorPilot.Simulator
     {
         public event Action<Plane> FlightStateChange;
         public event Action DispatchersShowState;
+        public event Action RepeatFlight;
 
         public Plane Plane { get; set; }
         public List<Dispatcher> Dispatchers { get; set; }

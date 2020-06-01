@@ -11,6 +11,11 @@ namespace SimulatorPilot.Simulator
             InitializePlane();
             InitializeDispatchers();
             SubscribeDispatchers();
+            RepeatFlight += Plane.ResetSettings;
+            RepeatFlight += UnsubscribeDispatchers;
+            RepeatFlight += InitializeDispatchers;
+            RepeatFlight += SubscribeDispatchers;
+            RepeatFlight += StartFlight;
         }
 
         private void InitializePlane()
@@ -58,3 +63,10 @@ namespace SimulatorPilot.Simulator
         }
     }
 }
+
+
+//Plane.ResetSettings();
+//UnsubscribeDispatchers();
+//InitializeDispatchers();
+//SubscribeDispatchers();
+//StartFlight();
