@@ -17,6 +17,19 @@ namespace SimulatorPilot.Simulator
 
             return count;
         }
+        private string GetNameDispatcher(int serialNumber)
+        {
+            string nameDispatcher;
+
+            do
+            {
+                Console.Clear();
+                Console.Write($"Имя диспетчера #{serialNumber}\n->");
+                nameDispatcher = Console.ReadLine();
+            } while (nameDispatcher.Equals(""));
+
+            return nameDispatcher;
+        }
 
         private void DispatchersMenu()
         {
@@ -30,17 +43,11 @@ namespace SimulatorPilot.Simulator
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.NumPad1 when Dispatchers.Count < 5:
-                        Dispatchers.Add(new Dispatcher(GetName(), Plane));
-                        break;
-
                     case ConsoleKey.D1 when Dispatchers.Count < 5:
-                        Dispatchers.Add(new Dispatcher(GetName(), Plane));
+                        AddNewDispatcher();
                         break;
 
                     case ConsoleKey.NumPad2 when Dispatchers.Count > 2:
-                        RemoveDispatcherMenu();
-                        break;
-
                     case ConsoleKey.D2 when Dispatchers.Count > 2:
                         RemoveDispatcherMenu();
                         break;
@@ -49,12 +56,44 @@ namespace SimulatorPilot.Simulator
             } while (!(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0));
         }
 
-        private string GetName()
+        private void AddNewDispatcher()
         {
-            Console.Clear();
-            Console.Write("Введите имя:\n->");
+            string nameDispatcher;
 
-            return Console.ReadLine();
+            do
+            {
+                Console.Clear();
+                Console.Write("Имя нового диспетчера:\n" +
+                    "[0] Назад;\n->");
+
+                nameDispatcher = Console.ReadLine();
+            } while (nameDispatcher.Equals(""));
+
+            if (!nameDispatcher.Equals("0"))
+                Dispatchers.Add(new Dispatcher(nameDispatcher, Plane));
+        }
+
+        private void RemoveDispatcherMenu()
+        {
+            int idx;
+
+            do
+            {
+                ShowDispatchersList();
+                Console.Write("Выберите порядковый номер:\n" +
+                    "[0] Назад;\n->");
+
+                if (!int.TryParse(Console.ReadLine(), out idx)) continue;
+
+                try
+                {
+                    Dispatchers.RemoveAt(--idx);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Неверный порядковый номер диспетчера!\n");
+                }
+            } while (!(idx == -1 || Dispatchers.Count <= MIN_COUNT_DISPETCHER));
         }
     }
 }
