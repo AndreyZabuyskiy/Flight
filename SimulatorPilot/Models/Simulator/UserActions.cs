@@ -54,7 +54,7 @@ namespace SimulatorPilot.Simulator
                         break;
                 }
 
-            } while (!(keyInfo.Key != ConsoleKey.D0 || keyInfo.Key != ConsoleKey.NumPad0));
+            } while (!(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0));
         }
 
         private void AddNewDispatcher()
@@ -95,6 +95,21 @@ namespace SimulatorPilot.Simulator
                     Console.WriteLine("Неверный порядковый номер диспетчера!\n");
                 }
             } while (!(idx == -1 || Dispatchers.Count <= MIN_COUNT_DISPETCHER));
+        }
+
+        private void CompletionFlighMenu()
+        {
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.Write("\n[1] Начать полет снова;\n" +
+                    "[0] Завершить;\n->");
+                keyInfo = Console.ReadKey();
+
+                if (keyInfo.Key == ConsoleKey.D1 || keyInfo.Key == ConsoleKey.NumPad1)
+                    RepeatFlight();
+
+            } while (!(keyInfo.Key == ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0));
         }
     }
 }

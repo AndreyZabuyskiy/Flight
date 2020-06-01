@@ -20,7 +20,8 @@ namespace SimulatorPilot.Models.Plane
 
             PrintPlane();
 
-            Console.WriteLine("[1] Открыть меню с диспетчерами\n");
+            Console.WriteLine("[1] Открыть меню с диспетчерами\n" +
+                "[0] Завершить полет\n");
         }
 
         private void PrintPlane()

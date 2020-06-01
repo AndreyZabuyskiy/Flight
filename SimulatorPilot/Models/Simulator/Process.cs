@@ -9,18 +9,7 @@ namespace SimulatorPilot.Simulator
         public void Run()
         {
             StartFlight();
-
-            ConsoleKeyInfo keyInfo;
-            do
-            {
-                Console.Write("[1] Начать полет снова;\n" +
-                    "[2] Завершить;\n->");
-                keyInfo = Console.ReadKey();
-
-                if(keyInfo.Key == ConsoleKey.D1 || keyInfo.Key == ConsoleKey.NumPad1)
-                    RepeatFlight.Invoke();
-
-            } while (keyInfo.Key != ConsoleKey.D0 || keyInfo.Key == ConsoleKey.NumPad0);
+            CompletionFlighMenu();
         }
 
         public void StartFlight()
@@ -52,7 +41,7 @@ namespace SimulatorPilot.Simulator
             Plane.ShowFlightInfo(CalculateRecommendedHeight());
             DispatchersShowState();
             Plane.ChangeFlightState();
-            FlightStateChange.Invoke(Plane);
+            FlightStateChange(Plane);
         }
     }
 }
