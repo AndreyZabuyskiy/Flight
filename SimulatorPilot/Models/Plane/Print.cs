@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace SimulatorPilot.Models.Plane
@@ -24,6 +25,27 @@ namespace SimulatorPilot.Models.Plane
                 "[0] Завершить полет\n");
         }
 
+        private void ShowVictory()
+        {
+            Console.Clear();
+            Console.WriteLine("Симулируемый полёт успешно сдан!");
+            PrintPlane();
+        }
+
+        public void ShowInfoException(Exception ex)
+        {
+            Console.Clear();
+
+            Console.WriteLine($"Текущая скорость {Speed}км/час, высота: {Height}м\n" +
+                $"Среднее значение штрафов: {AverageFines}\n\n" +
+                $"{ex.Message}\n");
+
+            PrintPlane();
+            Console.WriteLine();
+
+            Console.WriteLine("Полёт провален, пилот был признан не годным\n");
+        }
+
         private void PrintPlane()
         {
             string[] content = File.ReadAllLines(PATH_TO_PLANE_IMAGE);
@@ -34,13 +56,6 @@ namespace SimulatorPilot.Models.Plane
                 Console.WriteLine(buff);
             }
             Console.WriteLine();
-        }
-
-        private void ShowVictory()
-        {
-            Console.Clear();
-            Console.WriteLine("Полет успешно завершен!");
-            Console.ReadLine();
         }
     }
 }

@@ -19,7 +19,11 @@ namespace SimulatorPilot
         public Pilot(string name)
         {
             Name = name;
+            InitializeInstructions();
+        }
 
+        private void InitializeInstructions()
+        {
             Instructions = new Dictionary<ConsoleKey, EAction>
             {
                 { ConsoleKey.LeftArrow, EAction.ReduceSpeed },
@@ -31,7 +35,7 @@ namespace SimulatorPilot
                 { ConsoleKey.D0, EAction.FlightCancellation},
                 { ConsoleKey.NumPad0, EAction.FlightCancellation}
             };
-            
+
             SignificantlyInstructions = new Dictionary<ConsoleKey, EAction>
             {
                 { ConsoleKey.LeftArrow, EAction.SignificantlyReduceSpeed },

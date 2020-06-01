@@ -10,11 +10,12 @@ namespace SimulatorPilot
         public int Penalty { get; set; }
         public int RecommendedHeight { get; set; }
 
+        private const int SPEED_FACTOR = 6;
+
         public Dispatcher(string name)
         {
             Name = name;
             WeatherCorrection = new Random().Next(-200, 200);
-            RecommendedHeight = 0;
         }
         public Dispatcher(string name, Plane plane)
         {
@@ -32,7 +33,7 @@ namespace SimulatorPilot
 
         private int GetReccomendHeight(Plane plane)
         {
-            return 6 * plane.Speed - WeatherCorrection;
+            return SPEED_FACTOR * plane.Speed - WeatherCorrection;
         }
 
         private void WriteOutFine(Plane plane)

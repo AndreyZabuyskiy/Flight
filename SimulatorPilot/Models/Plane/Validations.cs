@@ -30,7 +30,7 @@ namespace SimulatorPilot.Models.Plane
             if (Height == 0 && Speed == 0 && IsReachedMaxSpeed)
             {
                 IsFlightCompleted = true;
-                Victory.Invoke();
+                ShowVictory();
             }
         }
     }

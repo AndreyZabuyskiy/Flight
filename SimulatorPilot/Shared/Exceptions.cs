@@ -4,12 +4,12 @@ namespace SimulatorPilot
 {
     class PlaneCrashedException : Exception
     {
-        public override string Message => "Самолет разбился!!!";
+        public override string Message => "Самолёт разбился из-за отсутствия скорости во время полёта!!!";
     }
 
     class FinesOverflowException : Exception
     {
-        public override string Message => "Самолет набрал слишком много штрафов от диспетчера!!!";
+        public override string Message => "Сумма штрафов от одного из диспетчеров превысила 1000!!!";
     }
 
     class WrongLandingException : Exception

@@ -28,8 +28,7 @@ namespace SimulatorPilot.Simulator
                 catch (DefaultValueException) { }
                 catch (Exception ex)
                 {
-                    Console.Clear();
-                    Console.WriteLine(ex.Message);
+                    Plane.ShowInfoException(ex);
                     break;
                 }
             }

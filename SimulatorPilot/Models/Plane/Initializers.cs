@@ -8,7 +8,6 @@ namespace SimulatorPilot.Models.Plane
         private void Initialize(string pilotName)
         {
             Pilot = new Pilot(pilotName);
-            Victory += ShowVictory;
             InitializeActions();
         }
 

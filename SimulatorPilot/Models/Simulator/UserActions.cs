@@ -102,7 +102,7 @@ namespace SimulatorPilot.Simulator
             ConsoleKeyInfo keyInfo;
             do
             {
-                Console.Write("\n[1] Начать полет снова;\n" +
+                Console.Write("[1] Начать полет снова;\n" +
                     "[0] Завершить;\n->");
                 keyInfo = Console.ReadKey();
 
