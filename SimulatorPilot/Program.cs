@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            new Simulator.Simulator().Start();
+            new Simulator.Simulator().Run();
         }
     }
 }

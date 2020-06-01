@@ -6,7 +6,7 @@ namespace SimulatorPilot.Simulator
 {
     partial class Simulator
     {
-        public void Start()
+        public void Run()
         {
             StartFlight();
 
