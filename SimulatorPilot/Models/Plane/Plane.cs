@@ -15,7 +15,7 @@ namespace SimulatorPilot.Models.Plane
         Dictionary<EAction, Action> Actions { get; set; }
 
         private const string PATH_TO_PLANE_IMAGE = "plane.txt";
-        private const int MAX_SPEED = 100;
+        private const int MAX_SPEED = 1000;
 
         public Plane(string pilotName)
         {
